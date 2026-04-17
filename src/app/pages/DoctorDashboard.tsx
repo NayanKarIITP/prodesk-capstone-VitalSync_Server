@@ -461,7 +461,12 @@ export default function DoctorDashboard() {
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/appointments", {
+        const API_URL =
+          window.location.hostname === "localhost"
+            ? "http://localhost:5000"
+            : "https://prodesk-capstone-vitalsync.onrender.com";
+
+        const res = await fetch(`${API_URL}/api/appointments`, {
           headers: {
             Authorization: localStorage.getItem("token") || ""
           }

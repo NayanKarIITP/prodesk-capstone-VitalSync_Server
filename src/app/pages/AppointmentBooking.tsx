@@ -363,7 +363,12 @@ export default function AppointmentBooking() {
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/doctors", {
+        const API_URL =
+          window.location.hostname === "localhost"
+            ? "http://localhost:5000"
+            : "https://prodesk-capstone-vitalsync.onrender.com";
+
+        const res = await fetch(`${API_URL}/api/doctors`, {
           headers: {
             Authorization: localStorage.getItem("token") || ""
           }

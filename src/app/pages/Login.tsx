@@ -31,7 +31,12 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const API_URL =
+        window.location.hostname === "localhost"
+          ? "http://localhost:5000"
+          : "https://prodesk-capstone-vitalsync.onrender.com";
+
+      const res = await fetch(`${API_URL}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -181,11 +186,11 @@ export default function Login() {
             Sign up
           </a> */}
           <span
-  className="text-blue-600 cursor-pointer"
-  onClick={() => navigate("/register")}
->
-  Sign up
-</span>
+            className="text-blue-600 cursor-pointer"
+            onClick={() => navigate("/register")}
+          >
+            Sign up
+          </span>
         </p>
 
         {/* Footer */}
