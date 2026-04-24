@@ -86,8 +86,13 @@ export default function DoctorDashboard() {
   const handlePrescription = async (e: any) => {
     e.preventDefault();
 
+    const API_URL =
+        window.location.hostname === "localhost"
+          ? "http://localhost:5000"
+          : "https://prodesk-capstone-vitalsync.onrender.com";
+          
     try {
-      await fetch("http://localhost:5000/api/prescriptions", {
+      await fetch(`${API_URL}/api/prescriptions`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -172,7 +177,12 @@ export default function DoctorDashboard() {
                 onCheckedChange={async (val) => {
                   setIsAvailable(val);
 
-                  await fetch("http://localhost:5000/api/availability", {
+                  const API_URL =
+                    window.location.hostname === "localhost"
+                      ? "http://localhost:5000"
+                      : "https://prodesk-capstone-vitalsync.onrender.com";
+
+                  await fetch(`${API_URL}/api/availability`, {
                     method: "POST",
                     headers: {
                       "Content-Type": "application/json",
