@@ -130,10 +130,20 @@ export default function PatientDashboard() {
         </div>
 
         <nav className="flex-1 p-4 space-y-2">
-          <button>Dashboard</button>
-          <button>Appointments</button>
-        </nav>
+          <button onClick={() => navigate("/")}>Dashboard</button>
 
+          <button onClick={() => navigate("/appointment-booking")}>
+            Appointments
+          </button>
+
+          {/* 🤖 AI FEATURE */}
+          <button
+            onClick={() => navigate("/ai")}
+            className="text-purple-600 font-semibold"
+          >
+            AI Assistant 🤖
+          </button>
+        </nav>
         <div className="p-4 border-t">
           <button
             onClick={() => {

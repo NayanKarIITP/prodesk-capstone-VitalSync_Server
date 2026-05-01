@@ -8,6 +8,7 @@ import DoctorDashboard from "./pages/DoctorDashboard";
 import AppointmentBooking from "./pages/AppointmentBooking";
 import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
+import AiSuggest from "./pages/AiSuggest";
 
 export const router = createBrowserRouter([
   {
@@ -41,5 +42,10 @@ export const router = createBrowserRouter([
 {
   path: "/cancel",
   Component: Cancel,
+},
+{
+  path: "/ai",
+  Component: AiSuggest
 }
+
 ]);
