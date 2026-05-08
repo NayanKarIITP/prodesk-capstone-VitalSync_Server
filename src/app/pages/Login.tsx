@@ -31,10 +31,12 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const API_URL =
-        window.location.hostname === "localhost"
-          ? "http://localhost:5000"
-          : "https://prodesk-capstone-vitalsync.onrender.com";
+      // const API_URL =
+      //   window.location.hostname === "localhost"
+      //     ? "http://localhost:5000"
+      //     : "https://prodesk-capstone-vitalsync.onrender.com";
+
+      const API_URL = (import.meta as any).env.VITE_API_URL;
 
       const res = await fetch(`${API_URL}/api/auth/login`, {
         method: "POST",
